@@ -10,6 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: 'Create env files'
+        run: |
+          echo "${{ secrets.ENV_FILE }}" > .env
+          echo "${{ secrets.FE_ENV_FILE }}" > ./real-estate-react-app/.env.local
+          echo "${{ secrets.BE_ENV_FILE }}" >> ./real-estate-flask-rest-api/.env
+
       - name: Checkout code
         uses: actions/checkout@v2
 

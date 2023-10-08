@@ -5,8 +5,6 @@ services:
       context: ./real-estate-flask-rest-api
     ports:
       - "5000:5000"
-    volumes:
-      - ./real-estate-flask-rest-api:/flask-be-api
     env_file:
       - ./real-estate-flask-rest-api/.env  # Include the path to your .env file for Flask backend
     depends_on:

@@ -39,6 +39,7 @@ jobs:
         if: success() || failure()
         run: |
           # Use the Docker Compose logs command to display logs from the backend service
+          docker-compose ps
           docker-compose logs flask-be
 
       - name: Stop and Remove Docker Containers

@@ -27,7 +27,7 @@ jobs:
 
       - name: Run Cypress Tests
         run: |
-          docker-compose exec fe-react node .\e2e-run-tests.js
+          docker-compose exec -T fe-react node .\e2e-run-tests.js
 
       - name: Stop and Remove Docker Containers
         run: docker-compose down

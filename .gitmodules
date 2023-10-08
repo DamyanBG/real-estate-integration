@@ -1,0 +1,6 @@
+[submodule "real-estate-flask-rest-api"]
+	path = real-estate-flask-rest-api
+	url = https://github.com/DamyanBG/real-estate-flask-rest-api
+[submodule "real-estate-react-app"]
+	path = real-estate-react-app
+	url = https://github.com/DamyanBG/real-estate-react-app

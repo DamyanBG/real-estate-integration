@@ -1,0 +1,25 @@
+name: Cypress Tests
+
+on:
+  push:
+    branches:
+      - main  # Adjust this branch name to match your main branch
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and Start Docker Containers
+        run: |
+          docker-compose up --build -d
+
+      - name: Run Cypress Tests
+        run: |
+          docker-compose exec fe-react node .\e2e-run-tests.js
+
+      - name: Stop and Remove Docker Containers
+        run: docker-compose down

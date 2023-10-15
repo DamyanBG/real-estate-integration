@@ -19,8 +19,39 @@ Before using this Docker Compose configuration, make sure you have the following
    POSTGRES_USER=your_postgres_user
    POSTGRES_PASSWORD=your_postgres_password
    POSTGRES_DB=your_postgres_db
+   ```
 
 Usually the container for the database creates default configuration for PostgreSQL and you can use default credentioals.
+
+## Environment variables
+
+### Add variables when integrate only Backend
+
+If you need to run only the backend, add .env file in ./real-estate-flask-rest-api/ and add these variables:
+
+```env
+DB_USER=your_postgres_user
+DB_PASSWORD=your_postgres_password
+DB_HOST=your_postgres_port
+DB_NAME=your_postgres_db
+JWT_KEY=some_JWT_KEY
+NEXTCLOUD_USER=
+NEXTCLOUD_PASSWORD=
+```
+
+Here you have to add the credentials for the back end. For Nextcloud - write me, I will give you my credentials for my cloud IF YOU NEED THEM REALLY.
+
+In future I will add the Nextcloud as separate container.
+
+On real-estate-react-app have committed .env file. The default domain for the Flask container is localhost:5000.
+
+### Environment variables for Full integration
+
+Follow the steps for integration of the backend + for the .env in the Front end add the name of the back end container.
+You can see the name of the container with companes:
+
+docker compose build
+docker compose ps
 
 ## Building the Containers
 
@@ -30,10 +61,10 @@ Before running the Docker Compose commands, you may need to build the Docker con
 
 2. Open your terminal or command prompt.
 
-3. To build the containers for the backend and frontend (if not already built), use the following commands:
+3. To build the containers for the backend and frontend, use the following commands:
 
    ```bash
-   docker-compose build flask-be fe-react
+   docker-compose build
     ```
 
 ## Usage
